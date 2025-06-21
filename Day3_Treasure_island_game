@@ -1,0 +1,48 @@
+print(r'''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\ ` . "-._ /_______________|_______
+|                   | |o ;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Bienvenido a la Isla del Tesoro.")
+print("Tu misión es encontrar el tesoro.")
+direccion=input('''Estás en una encrucijada. ¿A dónde quieres ir?\nEscribe "izquierda" o "derecha"\n''')
+if direccion=='isquierda'or direccion=='Isquierda':
+  lago=input('''Has llegado a un lago. Hay una isla en medio del lago.
+  Escribe "esperar" para esperar un barco. Escribe "nadar" para cruzar nadando.\n''')
+  if lago=="esperar" or lago=="Esperar":
+      puerta=input('''Llegas ileso a la isla. Hay una casa con 3 puertas.
+  Una roja, una amarillo y una azul. ¿Qué color eliges?\n''')
+      if puerta=="amarillo" or puerta=="Amarillo":
+          print("¡Encontraste el tesoro! ¡Tú ganas!")
+      elif puerta=="azul"or puerta=="Azul":
+          print("Entras en una habitación de bestias. Juego terminado.")
+      elif puerta=="roja" or puerta=="Roja" or puerta=="rojo" or puerta=="Rojo":
+          print("Es una habitación llena de fuego. Juego terminado.")
+      else:
+          print("“No reconozco esa respuesta. Selecciona una de las alternativas mostradas.”")
+
+  elif lago=="nadar" or lago=="Nadar":
+      print("Te ataca una trucha enojada. Juego terminado.")
+  else:
+      print("“No reconozco esa respuesta. Selecciona una de las alternativas mostradas.”")
+elif direccion=="derecha" or direccion=="Derecha":
+    print("Caíste en un hoyo. Juego terminado.")
+else:
+    print("“No reconozco esa respuesta. Selecciona una de las alternativas mostradas.”")
