@@ -1,0 +1,92 @@
+import random
+rock = '''                                                     
+          :@@@.@@@-:@@@                 
+        @%     %@      @@  .@@          
+       @.        @-     .@    @.        
+       @          @      @#    @        
+       @          :@      @    @        
+       @   @       @      @    @ @=     
+      -@@-   .#@@=.@     .@   .@  @     
+     @#           @#     @.   @   %+    
+    -@             @:   @.  @@    @     
+    -@             @*@%@@@@=     *@     
+     @      @@-.-@@       @     @@      
+     .@                    %@@@@        
+       @+                     *@        
+        .@@                 .@#         
+           @@@@@:      .@@@=@:          
+           @                @:          
+           :@              @@           
+             +@@@#-::+@@@@=  '''
+
+paper = '''                        
+                ..    .*##              
+             .#*##    # ..#             
+             #.   #  .#    #            
+             %.    # .#    #.           
+     .###.    #.   %. #    ..           
+     :....#:  -:   .% #    .#           
+      #    .#  #.   #.#    .%           
+    .  #     # .%   ..#    .%  ..=#%.   
+  #..#..#.  ..# #    %#    .* .#..   #  
+  #.. .#..#   .##          ...#.    #:  
+  .#.   .# #               =.%=.  :#    
+    ##.   .*.              %=#.  #.     
+      #.                 *##.   .#      
+       .#               % ..    #.      
+         # .           ..      .#       
+          #.                   #.       
+           .+                 #.        
+            .#.             .#.         
+             .@##.    ..%##...          
+             ..#:........#.     '''
+
+scissors = '''          
+           %@#@@.               
+          @.  .:%.              
+         :-.   .:@.   .@::=@.   
+         +.    .:%   :+  ..:@.  
+         -:     :#.  @.    :=:  
+         .@     :#.  %     :@.  
+         .@     :%. -:    ::@   
+          #.   .:@  @.    :#. . 
+          .*   .:@. @.   ::@.   
+     .#@%@:@   .:@..@   .:@.    
+     @...::@   .:@.+....::@     
+     @   .::@.  :-@%-@-::%@.    
+ @%=@@     :@   .:+@...  .:%:   
+@.  :*.    :=-.:*%.. .    .:@.  
+@.  .:@.   :==@*..         ::@. 
+-=   ::@.::@%.             .:%. 
+ @.  .:@:@.  .        :    .:+. 
+ .-@::@-*.  .       ::.    .:#. 
+    %...:@:.    .::%-.     ::@. 
+    @.   .::%@@@=:....    .:*:. 
+    .@.       -+..........:#:...
+     .@+.       @.......::@.....
+       .@@:..   ..::::*@.....   
+       @..::::::::::::::@..     
+       .@#. ..::::::::+@*.      
+            .@@@@@@@  .         '''
+game=[rock,paper,scissors]
+jugador=int(input('''Bienvenido a piedra, papel o tijera.Escribe: "0" para piedra "1" para papel y  "2" para tijera.\n'''))
+if jugador>=0 or jugador<=2:
+    print(game[jugador])
+else:
+    print("Escribiste un numero invalido.Perdiste")
+computador=random.randint(0,2)
+print("El computador eligio:")
+print(game[computador])
+if 0<jugador>2:
+    print("Escribiste un numero invalido.Perdiste")
+elif jugador == computador:
+    print("Es un empate")
+elif jugador ==2 and computador ==0:
+    print("Perdiste")
+elif jugador ==0 and computador ==2:
+    print("Ganaste!")
+elif computador > jugador:
+    print("Perdiste")
+elif jugador > computador:
+    print("Ganaste!!")
+
