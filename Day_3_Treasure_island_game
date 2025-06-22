@@ -22,23 +22,23 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 ''')
 print("Bienvenido a la Isla del Tesoro.")
 print("Tu misión es encontrar el tesoro.")
-direccion=input('''Estás en una encrucijada. ¿A dónde quieres ir?\nEscribe "izquierda" o "derecha"\n''')
-if direccion=='isquierda'or direccion=='Isquierda':
+direccion=input('''Estás en una encrucijada. ¿A dónde quieres ir?\nEscribe "izquierda" o "derecha"\n''').lower()
+if direccion=='isquierda':
   lago=input('''Has llegado a un lago. Hay una isla en medio del lago.
-  Escribe "esperar" para esperar un barco. Escribe "nadar" para cruzar nadando.\n''')
-  if lago=="esperar" or lago=="Esperar":
+  Escribe "esperar" para esperar un barco. Escribe "nadar" para cruzar nadando.\n''').lower()
+  if lago=="esperar":
       puerta=input('''Llegas ileso a la isla. Hay una casa con 3 puertas.
-  Una roja, una amarillo y una azul. ¿Qué color eliges?\n''')
-      if puerta=="amarillo" or puerta=="Amarillo":
+  Una roja, una amarillo y una azul. ¿Qué color eliges?\n''').lower()
+      if puerta=="amarillo" or puerta=="amarilla":
           print("¡Encontraste el tesoro! ¡Tú ganas!")
-      elif puerta=="azul"or puerta=="Azul":
+      elif puerta=="azul":
           print("Entras en una habitación de bestias. Juego terminado.")
-      elif puerta=="roja" or puerta=="Roja" or puerta=="rojo" or puerta=="Rojo":
+      elif puerta=="roja"or puerta=="rojo":
           print("Es una habitación llena de fuego. Juego terminado.")
       else:
           print("“No reconozco esa respuesta. Selecciona una de las alternativas mostradas.”")
 
-  elif lago=="nadar" or lago=="Nadar":
+  elif lago=="nadar":
       print("Te ataca una trucha enojada. Juego terminado.")
   else:
       print("“No reconozco esa respuesta. Selecciona una de las alternativas mostradas.”")
