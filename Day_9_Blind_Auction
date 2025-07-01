@@ -1,0 +1,26 @@
+import art
+print (art.logo)
+
+def find_highest_bid(auction_dictionaries):
+    highest_bid = 0
+    winner=""
+    for bidder in auction_dictionaries:
+        bid_=auction_dictionaries[bidder]
+        if bid_ > highest_bid:
+            highest_bid = bid_
+            winner = bidder
+    print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+should_continue = True
+
+auction={}
+while should_continue:
+    name=input("What is your name? ")
+    bid = float(input("What is your bid? $"))
+    auction[name]=bid
+    other_bidders=input("Are there any other bidders? Type 'yes or 'no'.\n").lower()
+    if other_bidders== 'no':
+        should_continue = False
+        find_highest_bid(auction)
+    else:
+        print("\n"*100)
