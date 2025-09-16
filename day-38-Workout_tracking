@@ -1,0 +1,57 @@
+import requests
+from datetime import datetime
+from requests.auth import HTTPBasicAuth
+import os
+
+
+
+#Nutricious
+
+APP_ID = os.environ.get("APP_ID", '''There's not an APP_ID variable''')
+API_KEY= os.environ.get("API_KEY", '''There's not an API_KEY variable''')
+ENDPOINT= os.environ.get("ENDPOINT", '''There's not an ENDPOINT variable''')
+
+sheetyEndpoint= os.environ.get('sheetyEndpoint', '''There's not an sheetyEndpoint variable''')
+username= os.environ.get("username", '''There's not an username variable''')
+password= os.environ.get("password", '''There's not an password variable''')
+
+
+exercise=input('What exercise did you do? : ')
+
+header={
+    'x-app-id': APP_ID,
+    'x-app-key': API_KEY,
+}
+params={
+    'query':exercise,
+    "gender": 'male',
+    "weight_kg": 62,
+    "height_cm": 170,
+    "age": 18
+}
+response=requests.post(url=ENDPOINT, headers=header,json=params)
+result=response.json()
+print(result)
+
+today_date = datetime.now().strftime("%d/%m/%Y")
+now_time = datetime.now().strftime("%X")
+
+basic = HTTPBasicAuth(username, password)
+
+for exercise in result["exercises"]:
+    sheet_inputs = {
+        "workout": {
+            "date": today_date,
+            "time": now_time,
+            "exercise": exercise["name"].title(),
+            "duration": exercise["duration_min"],
+            "calories": exercise["nf_calories"]
+        }
+    }
+
+    sheet_response = requests.post(sheetyEndpoint, json=sheet_inputs,auth=basic)
+    sheet_response.raise_for_status()
+
+
+
+    print(sheet_response.text)
